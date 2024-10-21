@@ -11,7 +11,7 @@ Linked List: basic data structure
     - Add to beginning of list: link new node to current head node
     - Remove a node: be sure to change the link to that node so that it goes to following node, not to the removed node
 
-<img src="./singly-linked-list.png" />
+<img src="./images/singly-linked-list.png" />
 
 ## Doubly Linked Lists
 
@@ -24,4 +24,4 @@ Doubly Linked Lists
 - Require the pointers at the tail of the list to be updated after addition to or removed of the tail
 - Require the pointers of the surrounding nodes to be updated after removal from the middle of the list
 
-<img src="./doubly-linked-list.png" />
+<img src="./images/doubly-linked-list.png" />

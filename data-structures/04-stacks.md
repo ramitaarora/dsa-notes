@@ -12,4 +12,4 @@ Stacks
 - Pushing data onto a full stack results in a stack overflow
 - Stacks process data Last In, First Out (LIFO)
 
-<img src="./stacks.png" />
+<img src="./images/stacks.png" />

@@ -1,1 +1,1 @@
-# dsa-notes
+# Notes for Data Structures and Algorithms

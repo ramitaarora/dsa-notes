@@ -13,4 +13,4 @@
 - Queues process data First In, First Out (FIFO)
 - Queues that restrict the number of elements they can store are called bounded queues.
 
-<img src="./queues.png" />
+<img src="./images/queues.png" />
