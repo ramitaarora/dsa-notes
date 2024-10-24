@@ -12,3 +12,37 @@ Hash Maps
 - Write a hash function
     - needs to be simple by design
     - need to be able to take whatever types of data we want to use as a key (string, number)
+- A <i>hash bucket</i> is the storage location at the index given by a hash
+    - First, the key is translated into the hash using our hashing function. Then, our hash map performs modulo arithmetic to turn the hash into an array index.
+
+<img src="./images/hash-maps.png" />
+
+- A <i>hash collision</i> is when a hash function might produce the same hash for two different keys
+    - Hash functions are designed to compress data from a large number of possible keys to a much smaller range, and the compression can cause has collision.
+    - The <i>separate chaining</i> strategy avoids collisions by updating the underlying data structure. Instead of an array of values that are mapped to by hashes, it could be an array of linked lists.
+    - The <i>open addressing</i> strategy avoids collisions stick to the array as our underlying data structure, but we continue looking for a new index to save our data if the first result of our hash function has a different key’s data.
+
+<img src="./images/hash-map-collision.png" />
+
+- Separate chaining involves assigning two keys with the same hash to different parts of the underlying data structure
+    - If we save both the key and the value, then we will be able to check against the saved key when we’re accessing data in a hash map. By saving the key with the value, we can avoid situations in which two keys have the same hash code where we might not be able to distinguish which value goes with a given key.
+    - Now, when we go to read or write a value for a key we do the following: calculate the hash for the key, find the appropriate index for that hash, and begin iterating through our linked list. For each element, if the saved key is the same as our key, return the value. Otherwise, continue iterating through the list comparing the keys saved in that list with our key.
+
+- Open Addressing: <i>Linear Probing</i>: open method of open addressing where we continue to find new array indices in a fixed sequence until an empty index is found.
+
+- <i>Clustering</i> is what happens when a single hash collision causes additional hash collisions. 
+    - Imagine a hash collision triggers a linear probing sequence to assigns a value to the next hash bucket over. Any key that would hash to this “next bucket” will now collide with a key that, in a sense, doesn’t belong to that bucket anyway.
+    - As a result the new key needs to be assigned to the next, next bucket over. This propagates the problem because now there are two hash buckets taken up by key-value pairs that were assigned as a result of a hash collision, displacing further pairs of information we might want to save to the table.
+
+<img src="./images/clustering.png" />
+
+Summary: 
+- A hash map is:
+    - Built on top of an array using a special indexing system
+    - A key-value storage with fast assignments and lookup
+    - A table that represents a map from a set of keys to a set of values
+- Hash maps accomplish all this by using a hash function, which turns a key into an index into the underlying array.
+- A hash collision is when a hash function returns the same index for two different keys.
+- There are different hash collision strategies:
+    - separate chaining, where each array index points to a different data structure
+    - open addressing, where a collision triggers a probing sequence to find where to store the value for a given key.
